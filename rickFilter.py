@@ -20,15 +20,16 @@ while True:
         #hair
         
         fromX, toX, fromY, toY, final = createHair(landmarks, frame)
-        if fromX != None:
+        if fromX != 0:
             frame[fromY: toY , fromX: toX] = final
-        
         #ceja
         fromX, toX, fromY, toY, final = createCeja(landmarks, frame)
-        frame[fromY: toY , fromX: toX] = final
+        if fromX != 0:
+            frame[fromY: toY , fromX: toX] = final
         #baba
         fromX, toX, fromY, toY, final = createBaba(landmarks, frame)
-        frame[fromY: toY , fromX: toX] = final
+        if fromX != 0:
+            frame[fromY: toY , fromX: toX] = final
 
     cv2.imshow("RickMorty", frame)
 

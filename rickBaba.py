@@ -21,18 +21,20 @@ def createBaba(landmarks, frame):
 
     #Get area of mouth
     top_left = ( int(center_mouth[0] - width_mouth/2), int(center_mouth[1] - height_mouth/2))
+    try:
+        baba_area = frame[top_left[1]: top_left[1] + height_mouth, top_left[0]: top_left[0] + width_mouth]
 
-    baba_area = frame[top_left[1]: top_left[1] + height_mouth, top_left[0]: top_left[0] + width_mouth]
+        baba_rick_area_sin_baba = cv2.bitwise_and(baba_area,baba_area, mask=baba_mask)
 
-    baba_rick_area_sin_baba = cv2.bitwise_and(baba_area,baba_area, mask=baba_mask)
+        final = cv2.add(baba_rick_area_sin_baba, baba_rick)
 
-    final = cv2.add(baba_rick_area_sin_baba, baba_rick)
+        #frame[top_left[1]: top_left[1] + height_mouth, top_left[0]: top_left[0] + width_mouth] = baba_final
 
-    #frame[top_left[1]: top_left[1] + height_mouth, top_left[0]: top_left[0] + width_mouth] = baba_final
+        fromY = top_left[1]
+        toY = top_left[1] + height_mouth
+        fromX = top_left[0]
+        toX = top_left[0] + width_mouth
 
-    fromY = top_left[1]
-    toY = top_left[1] + height_mouth
-    fromX = top_left[0]
-    toX = top_left[0] + width_mouth
-
-    return fromX, toX, fromY, toY, final
+        return fromX, toX, fromY, toY, final
+    except:
+        return 0, 0, 0, 0, 0

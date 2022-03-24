@@ -20,18 +20,19 @@ def createCeja(landmarks, frame):
 
     #Get area of eye brow
     top_left = ( int(center_ceja[0] - width_ceja/2), int(center_ceja[1] - height_ceja/2))
+    try:
+        ceja_area = frame[top_left[1]: top_left[1] + height_ceja, top_left[0]: top_left[0] + width_ceja]
 
-    ceja_area = frame[top_left[1]: top_left[1] + height_ceja, top_left[0]: top_left[0] + width_ceja]
+        ceja_rick_area_sin_ceja = cv2.bitwise_and(ceja_area,ceja_area, mask=ceja_mask)
 
-    ceja_rick_area_sin_ceja = cv2.bitwise_and(ceja_area,ceja_area, mask=ceja_mask)
+        final = cv2.add(ceja_rick_area_sin_ceja, ceja_rick)
 
-    final = cv2.add(ceja_rick_area_sin_ceja, ceja_rick)
+        #frame[top_left[1]: top_left[1] + height_ceja, top_left[0]: top_left[0] + width_ceja] = ceja_final
 
-    #frame[top_left[1]: top_left[1] + height_ceja, top_left[0]: top_left[0] + width_ceja] = ceja_final
-
-    fromY = top_left[1]
-    toY = top_left[1] + height_ceja
-    fromX = top_left[0]
-    toX = top_left[0] + width_ceja
-
-    return fromX, toX, fromY, toY, final
+        fromY = top_left[1]
+        toY = top_left[1] + height_ceja
+        fromX = top_left[0]
+        toX = top_left[0] + width_ceja
+        return fromX, toX, fromY, toY, final
+    except:
+        return 0, 0, 0, 0, 0
