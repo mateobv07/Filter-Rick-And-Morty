@@ -3,6 +3,7 @@ import dlib
 import numpy as np
 from rickCeja import createCeja
 from rickHair import createHair
+from rickBaba import createBaba
 cap = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
@@ -16,18 +17,17 @@ while True:
 
     for face in faces:
         landmarks = predictor(gray_frame, face)
-
         #hair
         fromX, toX, fromY, toY, final = createHair(landmarks, frame)
         frame[fromY: toY , fromX: toX] = final
-
         #ceja
         fromX, toX, fromY, toY, final = createCeja(landmarks, frame)
         frame[fromY: toY , fromX: toX] = final
+        #baba
+        fromX, toX, fromY, toY, final = createBaba(landmarks, frame)
+        frame[fromY: toY , fromX: toX] = final
 
-       
-
-    cv2.imshow("Frame", frame)
+    cv2.imshow("RickMorty", frame)
 
     key = cv2.waitKey(1)
     if key == 27:
