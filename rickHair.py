@@ -3,16 +3,17 @@ import numpy as np
 from math import hypot
 
 def createHair(landmarks, frame):
-    
+
     hair_imagen = cv2.imread("assets/hair.png")
 
     #get coordinates for hair
     left_hair = (landmarks.part(0).x -100, landmarks.part(0).y)
     right_hair = (landmarks.part(25).x +100, landmarks.part(16).y )
     center_hair = (landmarks.part(27).x , landmarks.part(24).y )
+    bottom_hair = (landmarks.part(8).x , landmarks.part(8).y )
     
     width_hair = int(hypot(left_hair[0] - right_hair[0], left_hair[1] - right_hair[1]))
-    height_hair = 420
+    height_hair = int(hypot(bottom_hair[0] - center_hair[0], bottom_hair[1] - center_hair[1]) * 1.6)
     hair_rick = cv2.resize(hair_imagen, (width_hair, height_hair))
     hair_rick_gray = cv2.cvtColor(hair_rick, cv2.COLOR_BGR2GRAY)
     
