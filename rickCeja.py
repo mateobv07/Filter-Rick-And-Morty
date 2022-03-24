@@ -3,7 +3,7 @@ import numpy as np
 from math import hypot
 
 def createCeja(landmarks, frame):
-    ceja_imagen = cv2.imread("ceja.png")
+    ceja_imagen = cv2.imread("assets/ceja.png")
 
      #get coordinates for eye brow
     left_ceja = (landmarks.part(18).x , landmarks.part(18).y)
