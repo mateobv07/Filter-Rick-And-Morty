@@ -1,9 +1,7 @@
 # Filter-Rick-And-Morty
 Filtro de Rick Sanchez usando openCV y dlib facial landmarks
 
-![alt text](https://raw.githubusercontent.com/mateobv07/Filter-Rick-And-Morty/main/assets/facemarks%20points.png)
-
-![alt text](https://static.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728 =250x400)
+![alt text](https://raw.githubusercontent.com/mateobv07/Filter-Rick-And-Morty/main/assets/facemarks%20points.png)<img src="https://static.wikia.nocookie.net/rickandmorty/images/a/a6/Rick_Sanchez.png/revision/latest?cb=20160923150728"  width="300" height="400" />
 
 Este filtro te agrega:
  - El pelo de Rick Sanchez
