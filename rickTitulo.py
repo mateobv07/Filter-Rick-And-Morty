@@ -6,9 +6,9 @@ def createTitulo(landmarks, frame):
     titulo_imagen = cv2.imread("assets/titulo.png")
 
      #get coordinates for above head
-    left_forehead = (landmarks.part(19).x , landmarks.part(19).y - 100)
-    right_forehead = (landmarks.part(24).x , landmarks.part(24).y - 100)
-    center_forehead = (landmarks.part(27).x , landmarks.part(27).y - 100 )
+    left_forehead = (landmarks.part(19).x , landmarks.part(19).y - 300)
+    right_forehead = (landmarks.part(24).x , landmarks.part(24).y - 300)
+    center_forehead = (landmarks.part(27).x , landmarks.part(27).y - 300 )
 
     width_forehead = int(hypot(left_forehead[0] - right_forehead[0], left_forehead[1] - right_forehead[1]))
     height_forehead = int(width_forehead*1.05)
