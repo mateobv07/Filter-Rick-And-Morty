@@ -4,6 +4,7 @@ import numpy as np
 from rickCeja import createCeja
 from rickHair import createHair
 from rickBaba import createBaba
+from rickTitulo import createTitulo
 cap = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
@@ -30,7 +31,10 @@ while True:
         fromX, toX, fromY, toY, final = createBaba(landmarks, frame)
         if fromX != 0:
             frame[fromY: toY , fromX: toX] = final
-
+        #titulo
+        fromX, toX, fromY, toY, final = createTitulo(landmarks, frame)
+        if fromX != 0:
+            frame[fromY: toY , fromX: toX] = final
     cv2.imshow("RickMorty", frame)
 
     key = cv2.waitKey(1)
