@@ -3,6 +3,7 @@ import numpy as np
 from math import hypot
 
 def createHair(landmarks, frame):
+    
     hair_imagen = cv2.imread("assets/hair.png")
 
     #get coordinates for hair

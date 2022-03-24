@@ -5,7 +5,6 @@ from rickCeja import createCeja
 from rickHair import createHair
 cap = cv2.VideoCapture(0)
 
-
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
