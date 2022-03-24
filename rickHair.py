@@ -22,18 +22,21 @@ def createHair(landmarks, frame):
     #Get area of hair
     top_left = ( int(center_hair[0] - width_hair/1.85), int(center_hair[1] - height_hair/2))
 
-    hair_area = frame[top_left[1]: top_left[1] + height_hair, top_left[0]: top_left[0] + width_hair]
-
-    hair_rick_area_sin_hair = cv2.bitwise_and(hair_area, hair_area, mask=hair_mask)
-
-    final = cv2.add(hair_rick_area_sin_hair, hair_rick)
+    try:
+        hair_area = frame[top_left[1]: top_left[1] + height_hair, top_left[0]: top_left[0] + width_hair]
     
-    #Add hair to frame
-    #frame[top_left[1]: top_left[1] + height_hair, top_left[0]: top_left[0] + width_hair] = final
+        hair_rick_area_sin_hair = cv2.bitwise_and(hair_area, hair_area, mask=hair_mask)
 
-    fromY = top_left[1]
-    toY = top_left[1] + height_hair
-    fromX = top_left[0]
-    toX = top_left[0] + width_hair
+        final = cv2.add(hair_rick_area_sin_hair, hair_rick)
+        
+        #Add hair to frame
+        #frame[top_left[1]: top_left[1] + height_hair, top_left[0]: top_left[0] + width_hair] = final
 
-    return fromX, toX, fromY, toY, final
+        fromY = top_left[1]
+        toY = top_left[1] + height_hair
+        fromX = top_left[0]
+        toX = top_left[0] + width_hair
+
+        return fromX, toX, fromY, toY, final
+    except:
+        return 0, 0, 0, 0, 0

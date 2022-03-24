@@ -18,8 +18,11 @@ while True:
     for face in faces:
         landmarks = predictor(gray_frame, face)
         #hair
+        
         fromX, toX, fromY, toY, final = createHair(landmarks, frame)
-        frame[fromY: toY , fromX: toX] = final
+        if fromX != None:
+            frame[fromY: toY , fromX: toX] = final
+        
         #ceja
         fromX, toX, fromY, toY, final = createCeja(landmarks, frame)
         frame[fromY: toY , fromX: toX] = final
