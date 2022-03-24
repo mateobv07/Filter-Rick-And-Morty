@@ -8,3 +8,6 @@ Este filtro te agrega:
  - Las cejas de Rick Sanchez
  - La baba de Rick Sanchez
  - Un titulo de Rick and Morty
+
+Para este trabajo nos basamos en el siguiente recurso: 
+https://pysource.com/2019/03/25/pigs-nose-instagram-face-filter-opencv-with-python/
