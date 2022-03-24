@@ -1,6 +1,7 @@
+#Para este filtro nos basamos en el siguiente recurso:
+#https://pysource.com/2019/03/25/pigs-nose-instagram-face-filter-opencv-with-python/
 import cv2
 import dlib
-import numpy as np
 from rickCeja import createCeja
 from rickHair import createHair
 from rickBaba import createBaba
